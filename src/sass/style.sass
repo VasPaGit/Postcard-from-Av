@@ -1,0 +1,90 @@
+*,
+::before,
+::after
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+html
+	font-size: 0.625em
+
+body
+	background-color: #ccc
+
+.page
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100vh
+
+.no-webp .postcard
+	background-image: url(../img/background.jpg)
+
+.webp .postcard
+	background-image: url(../img/background.webp)
+
+.postcard
+	position: relative
+	display: flex
+	align-items: center
+	height: 40rem
+	max-width: 60rem
+	width: 100%
+	background-position: center
+	background-repeat: no-repeat
+	margin: 0 1.5rem
+	overflow: hidden
+
+	@media screen and (max-width: 520px)
+		justify-content: center
+
+	&::before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 100%
+		background: radial-gradient(90% 50%, rgba(194,195,206,0.2), rgba(50,57,93,0.3))
+		z-index: 0
+
+	&__content
+		z-index: 1
+
+	&__text
+		color: #fff
+		font-family: Impact
+		font-size: 8.2rem
+		text-transform: uppercase
+		margin-left: 3.2rem
+
+		@media screen and (max-width: 600px)
+			font-size: 6.2rem
+
+		@media screen and (max-width: 520px)
+			font-size: 8.2rem
+			text-align: center
+
+	&__img-wrapper
+		position: absolute
+		right: -15rem	
+		bottom: -3rem
+		display: inline-block
+		width: 44rem
+		filter: drop-shadow(-20px 10px 10px rgba(0,0,0,1))
+
+		@media screen and (max-width: 520px)
+			display: none
+
+		&::before
+			position: absolute
+			top: -6rem
+			left: 4rem
+
+	&__img
+		width: 100%
+		height: auto
+
+.no-webp .postcard__img-wrapper::before
+	content: url(../img/hat.png)
+
+.webp .postcard__img-wrapper::before
+	content: url(../img/hat.webp)
