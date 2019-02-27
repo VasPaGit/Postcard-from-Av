@@ -7,6 +7,7 @@
 
 html
 	font-size: 0.625em
+	font-family: Impact
 
 body
 	background-color: #ccc
@@ -17,23 +18,33 @@ body
 	align-items: center
 	height: 100vh
 
-.no-webp .postcard
-	background-image: url(../img/background.jpg)
-
-.webp .postcard
-	background-image: url(../img/background.webp)
-
 .postcard
 	position: relative
-	display: flex
-	align-items: center
 	height: 40rem
 	max-width: 60rem
 	width: 100%
+	margin: 0 1.5rem
+	perspective: 100rem
+
+	&__card
+		position: absolute
+		height: 100%
+		width: 100%
+		transition: 1s
+		overflow: hidden
+		backface-visibility: hidden
+
+.postcard:hover .postcard-front
+	transform: rotateY(180deg)
+.postcard:hover .postcard-back
+	transform: rotateY(360deg)
+
+.postcard-front
+	display: flex
+	align-items: center
 	background-position: center
 	background-repeat: no-repeat
-	margin: 0 1.5rem
-	overflow: hidden
+	background-size: cover
 
 	@media screen and (max-width: 520px)
 		justify-content: center
@@ -43,7 +54,7 @@ body
 		position: absolute
 		width: 100%
 		height: 100%
-		background: radial-gradient(90% 50%, rgba(194,195,206,0.2), rgba(50,57,93,0.3))
+		background: radial-gradient(rgba(194,195,206,0.2), rgba(50,57,93,0.3))
 		z-index: 0
 
 	&__content
@@ -51,7 +62,6 @@ body
 
 	&__text
 		color: #fff
-		font-family: Impact
 		font-size: 8.2rem
 		text-transform: uppercase
 		margin-left: 3.2rem
@@ -83,8 +93,28 @@ body
 		width: 100%
 		height: auto
 
-.no-webp .postcard__img-wrapper::before
+.no-webp .postcard-front
+	background-image: url(../img/background.jpg)
+
+.webp .postcard-front
+	background-image: url(../img/background.webp)
+
+.no-webp .postcard-front__img-wrapper::before
 	content: url(../img/hat.png)
 
-.webp .postcard__img-wrapper::before
+.webp .postcard-front__img-wrapper::before
 	content: url(../img/hat.webp)
+
+.postcard-back
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	font-size: 3rem
+	text-align: center
+	background-color: #fff
+	transform: rotateY(180deg)
+	z-index: 3
+
+	&__title
+		margin-bottom: 1.5rem

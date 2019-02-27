@@ -13,17 +13,28 @@
 <body>
 	<div class="page">
 		<div class="postcard">
-			<div class="postcard__content">
-				<h1 class="postcard__text">С новым <br> годом!</h1>
-	
-				<div class="postcard__img-wrapper">
-					<picture>
+			<div class="postcard-front postcard__card">
+				<div class="postcard-front__content">
+					<h1 class="postcard-front__text">С новым<br> годом!</h1>
+		
+					<picture  class="postcard-front__img-wrapper">
 						<source srcset="img/peaple.webp" type="image/webp">
-						<img class="postcard__img" src="img/peaple.png" alt="Фотография Артема Исламова из Академии верстки">
+						<img class="postcard-front__img" src="img/peaple.png" alt="Фотография Артема Исламова из Академии верстки">
 					</picture>
+					<!-- /.postcard-front__img-wrapper -->
 				</div>
+				<!-- /.postcard-front__content -->
 			</div>
+			<!-- /.postcard-front postcard__card -->
+
+			<div class="postcard-back postcard__card">
+				<h1 class="postcard-back__title">С новым годом!</h1>
+				<p class="postcard-back__text">Желаю всего самого найлучшего!<br> До следующего нового года, 2020 года!</p>
+			</div>
+			<!-- /.postcard-back postcard__card -->
+		</div>
+		<!-- /.postcard -->
 	</div>
-	</div>
+	<!-- /.page -->
 </body>
 </html>
